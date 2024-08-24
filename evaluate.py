@@ -58,12 +58,12 @@ def normaliseLetterFrequencies(letterFrequencies,total):
     return normalisedLetterFrequencies
 
 # letter frequencies must be sorted
-with open("Text analysis/letterFrequenciesSorted.json") as file:
+with open("letterFrequenciesSorted.json") as file:
     idealLetterFrequenciesSorted = json.load(file)
 def getVectorEvaluationSubstituted(letterFrequencies):
     return dot(letterFrequencies,idealLetterFrequenciesSorted)/(linalg.norm(letterFrequencies)*linalg.norm(idealLetterFrequenciesSorted))
 
-with open("Text analysis/letterFrequenciesUnsorted.json","r") as file:
+with open("letterFrequenciesUnsorted.json","r") as file:
     idealLetterFrequenciesUnsorted = array(json.load(file),dtype=uintc)
 def evaluateLetterFrequenciesUnsubstituted(plainText):
     letterFrequencies = zeros(26, dtype=uintc)
@@ -73,7 +73,7 @@ def evaluateLetterFrequenciesUnsubstituted(plainText):
                 linalg.norm(letterFrequencies) * linalg.norm(idealLetterFrequenciesUnsorted))
 
 # a much better, and computationally cheaper, approach. Logged quadgram frequencies (the more negative, the less similar)
-with open("Text analysis/quadgram proportions.json","r") as file:
+with open("quadgram proportions.json","r") as file:
     idealQuadgramFrequencies = json.load(file)
 def evaluateQuadgramFrequencies(plainText):
 
@@ -87,7 +87,7 @@ def evaluateQuadgramFrequencies(plainText):
         currentHash = 26*(currentHash-first)+last
     return fitness
 
-with open("Text analysis/alphanumeric quadgram proportions.json","r") as file:
+with open("alphanumeric quadgram proportions.json","r") as file:
     idealAlphanumericQuadgramFrequencies = json.load(file)
 def evaluateAlphanumericQuadgramFrequencies(plainText):
 
@@ -101,7 +101,7 @@ def evaluateAlphanumericQuadgramFrequencies(plainText):
         currentHash = 36 * (currentHash - first) + last
     return fitness
 
-with open("Text analysis/bigram proportions.json","r") as file:
+with open("bigram proportions.json","r") as file:
     idealBigramFrequencies = json.load(file)
 def evaluateBigramFrequencies(plainText):
 
