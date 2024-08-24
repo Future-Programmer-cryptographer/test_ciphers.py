@@ -230,3 +230,7 @@ def calculateBigramFrequencies():
 
 
 calculateAlphanumericQuadgramFrequencies()
+calculateLetterFrequencies()
+calculateQuadgramFrequencies()
+calculateTrigramFrequencies()
+calculateBigramFrequencies()
