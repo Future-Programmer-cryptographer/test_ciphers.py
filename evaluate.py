@@ -6,7 +6,7 @@ def getIOC(letterFrequencies,total):
     return sum(letter*(letter-1) for letter in letterFrequencies)/(total*(total-1))
 
 # letter frequencies must be sorted and normalised
-with open("Text analysis/letterFrequenciesSortedNormalised.json","r") as file:
+with open("letterFrequenciesSortedNormalised.json","r") as file:
     idealLetterFrequenciesSortedNormalised = json.load(file)
 def getTwist(letterFrequencies):
     twist = 0
